@@ -2,7 +2,7 @@ defmodule Exlivery.Orders.Agent do
   alias Exlivery.Orders.Order
 
   def start_link(_initial_state) do
-    Agent.start_link(__MODULE__, fn -> %{} end)
+    Agent.start_link(fn -> %{} end, name: __MODULE__)
   end
 
   def save(%Order{} = order) do

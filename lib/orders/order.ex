@@ -9,13 +9,13 @@ defmodule Exlivery.Orders.Order do
 
   def build(
         %User{cpf: cpf, address: address},
-        [%Item{} | _sitems] = items
+        [%Item{} | _items] = items
       ) do
     {:ok,
      %__MODULE__{
        user_cpf: cpf,
        delivery_address: address,
-       items: nil,
+       items: items,
        total_price: calculate_total(items)
      }}
   end

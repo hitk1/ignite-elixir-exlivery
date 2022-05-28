@@ -1,5 +1,6 @@
 defmodule Exlivery do
-  alias Exlivery.Users.CreateOrUpdate
+  alias Exlivery.Users.CreateOrUpdate, as: CreateOrUpdateUser
+  alias Exlivery.Orders.CreateOrUpdate, as: CreateOrUpdateOrder
   alias Exlivery.Users.Agent, as: UserAgent
 
   alias Exlivery.Orders.Agent, as: OrderAgent
@@ -14,5 +15,6 @@ defmodule Exlivery do
   # quais funções executar
   # No caso, é definido uma funcao 'create_or_update' que recebe alguns parametros, que por sua vez
   # executa a função 'call' dentro do modulo 'CreateOrUpdate'
-  defdelegate create_or_update(params), to: CreateOrUpdate, as: :call
+  defdelegate create_or_update_user(params), to: CreateOrUpdateUser, as: :call
+  defdelegate create_or_update_order(params), to: CreateOrUpdateOrder, as: :call
 end
